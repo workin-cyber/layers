@@ -1,8 +1,6 @@
-const DL = require('../DL')
+const DL = require('../DL'),
+    users = require('./users')(DL)
 
-function getUsers() {
-    //validation
-    return DL.getUsers()
-}
 
-module.exports = { getUsers }
+
+module.exports = { users }

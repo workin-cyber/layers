@@ -15,5 +15,12 @@ const getUsers = async () => {
     return res.rows
 }
 
+const getUser = async (id) => {
+    const res = await client.query(`
+    SELECT * FROM public.users 
+    WHERE id = '${id}'
+    `)
+    return res.rows[0]
+}
 
-module.exports = { getUsers }
+module.exports = { getUsers, getUser }

@@ -8,7 +8,17 @@ function Router(app) {
 
     app.get('/users', async (req, res) => {
         try {
-            const result = await BL.getUsers()// BL.users.read()
+            const result = await BL.users.read()
+            res.send(result)
+        } catch (error) {
+            res.send({ error: error.message || error })
+        }
+    })
+
+    app.get('/user/:id', async (req, res) => {
+        try {
+            const { id } = req.params
+            const result = await BL.users.readOne(id)
             res.send(result)
         } catch (error) {
             res.send({ error: error.message || error })
