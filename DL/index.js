@@ -23,4 +23,21 @@ const getUser = async (id) => {
     return res.rows[0]
 }
 
-module.exports = { getUsers, getUser }
+const getUserByEmail = async (email) => {
+    const res = await client.query(`
+    SELECT * FROM public.users 
+    WHERE email = '${email}'
+    `)
+    return res.rows[0]
+}
+
+const createUser = async (data) => {
+    await client.query(`
+        INSERT INTO public.users(id, name, email, password)
+        VALUES('${data.id}', '${data.name}', '${data.email}', '${data.password}')
+    `)
+    delete data.password
+    return data
+}
+
+module.exports = { getUsers, getUser, createUser, getUserByEmail }
