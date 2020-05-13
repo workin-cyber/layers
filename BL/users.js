@@ -36,14 +36,16 @@ module.exports = function Users(DL) {
               return DL.createUser(data)
           }, */
 
-        register: (data) => {
+        register: async (data) => {
             //TODO validation
             if (!data.password) throw 'password is required'
 
             data.password = bcrypt.hashSync(data.password, 8)
             data.id = uniqid()
 
-            return DL.createUser(data)
+            await DL.createUser(data)
+
+            return { token: createToken(data.email) }
         },
 
         login: async (data) => {

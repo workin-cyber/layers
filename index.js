@@ -5,6 +5,7 @@ const
     app = express(),
     port = 55555
 
+app.use(require('cors')())
 app.use(bodyParser.json())
 
 router(app)

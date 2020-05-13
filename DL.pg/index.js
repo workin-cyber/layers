@@ -11,7 +11,7 @@ const client = new Client({
 client.connect()
 
 const getUsers = async () => {
-    const res = await client.query(`SELECT * FROM public.users ORDER BY id`)
+    const res = await client.query(`SELECT id, name, email FROM public.users ORDER BY id`)
     return res.rows
 }
 
