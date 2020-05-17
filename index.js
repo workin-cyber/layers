@@ -8,6 +8,11 @@ const
 app.use(require('cors')())
 app.use(bodyParser.json())
 
+app.use((req, res, next) => {
+    req.body.myName = 'yossef'
+    next()
+})
+
 router(app)
 
 app.listen(port, () => console.log(`Server running: ${port}`))
