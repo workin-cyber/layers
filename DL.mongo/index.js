@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 mongoose.connect(
-    'mongodb+srv://admin:admin123@cluster0-5hpqm.mongodb.net/test?retryWrites=true&w=majority',
+    process.env.MongoConnectionString,
     { autoReconnect: true }
     , (err) => {
         if (err) throw 'mongo connection problem'
