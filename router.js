@@ -2,9 +2,9 @@ const BL = require('./BL')
 
 function Router(app) {
 
-    app.get('/', (req, res) => {
-        res.send(`<h1>Hello world</h1>`)
-    })
+    /*     app.get('/', (req, res) => {
+            res.send(`<h1>Hello world</h1>`)
+        }) */
 
     app.get('/users/:email', async (req, res) => {
         try {

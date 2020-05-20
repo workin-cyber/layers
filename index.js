@@ -8,13 +8,10 @@ const
 
 console.log(process.env)
 
-app.use(require('cors')())
+/* app.use(require('cors')()) */
 app.use(bodyParser.json())
 
-app.use((req, res, next) => {
-    req.body.myName = 'yossef'
-    next()
-})
+app.use(express.static('build'))
 
 router(app)
 
